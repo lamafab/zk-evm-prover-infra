@@ -319,7 +319,7 @@ open http://localhost:15672/
 <details>
 <summary>Click to expand</summary>
 
-Provision an Ubuntu/Debian VM with good specs (e.g. `t2d-standard-60`).
+Provision an Ubuntu/Debian VM with good specs (e.g. `t2d-standard-16`).
 
 Switch to admin.
 
@@ -333,7 +333,7 @@ Install docker.
 curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/debian bookworm stable" |tee /etc/apt/sources.list.d/docker.list > /dev/null
 apt update
-apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-compose
+apt install --yes docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-compose
 docker run hello-world
 ```
 
@@ -409,6 +409,7 @@ $ rpc --help
 $ worker --help
 $ leader --help
 $ verifier --help
+$ prover-cli --help
 $ jq --version # jq-1.7.1
 $ ps --version # ps from procps-ng 3.3.17
 ```
