@@ -64,5 +64,8 @@ echo; echo "Deploying zk_evm prover infrastructure..."
 yq --in-place --yaml-roundtrip --arg n $VPC_NAME '.network = $n' helm/values.yaml
 helm install test --namespace zk-evm --create-namespace ./helm
 
+kubectl apply -f tools/port-forward-role.yaml
+kubectl apply -f tools/port-forward-rolebinding.yaml
+
 echo; echo "Setup completed successfully!"
 echo; echo "It may take a few minutes for all pods to be ready."
