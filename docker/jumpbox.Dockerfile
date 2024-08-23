@@ -1,5 +1,6 @@
 FROM rustlang/rust:nightly-bullseye-slim
 ARG ZK_EVM_BRANCH_OR_COMMIT
+ARG PROVER_CLI_BRANCH_OR_COMMIT
 RUN apt-get update \
   && apt-get install --yes build-essential curl git procps libjemalloc-dev libjemalloc2 make libssl-dev pkg-config \
   && curl --location --output /usr/local/bin/jq https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-linux-amd64 \
@@ -22,5 +23,6 @@ RUN apt-get update \
   && apt-get install --yes python3 python3-pip python3-venv screen google-cloud-cli google-cloud-cli-gke-gcloud-auth-plugin \
   && git clone https://github.com/rebelArtists/prover_cli.git /opt/prover_cli \
   && cd /opt/prover_cli \
+  && git checkout $PROVER_CLI_BRANCH_OR_COMMIT \
   && pip install --requirement requirements.txt \
   && pip install --editable .

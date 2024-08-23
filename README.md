@@ -398,7 +398,7 @@ Build the jumpbox images.
 
 ```bash
 pushd /opt/zk-evm-prover-infra/docker
-docker build --no-cache --tag leovct/zk_evm_jumpbox:v0.6.0 --build-arg ZK_EVM_BRANCH_OR_COMMIT=v0.6.0 --file jumpbox.Dockerfile .
+docker build --no-cache --tag leovct/zk_evm_jumpbox:v0.6.0 --build-arg ZK_EVM_BRANCH_OR_COMMIT=v0.6.0 --build-arg PROVER_CLI_BRANCH_OR_COMMIT=v1.0.0 --file jumpbox.Dockerfile .
 ```
 
 Check that the images are built correctly.
