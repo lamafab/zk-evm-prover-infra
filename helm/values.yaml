@@ -74,4 +74,4 @@ rabbitmq:
       password: guest
 
 jumpbox:
-  image: leovct/zk_evm_jumpbox:v0.6.0-1
+  image: leovct/zk_evm_jumpbox:v0.6.0-2
