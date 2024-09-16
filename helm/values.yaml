@@ -9,6 +9,9 @@ worker:
   # Number of worker pods when autoscaler is disabled.
   workerCount: 4
 
+  nodeSelector:
+    cloud.google.com/gke-nodepool: highmem-node-pool
+
   autoscaler:
     # Enable or disable the worker autoscaler (HPA).
     enabled: false
