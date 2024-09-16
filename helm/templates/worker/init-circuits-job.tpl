@@ -36,10 +36,7 @@ spec:
       nodeSelector:
       {{ toYaml .Values.worker.nodeSelector | indent 8 }}
       tolerations:
-      - key: "highmem"
-        operator: "Equal"
-        value: "true"
-        effect: "NoSchedule"
+      {{ toYaml .Values.worker.tolerations | indent 8 }}
 
 ---
 apiVersion: v1

@@ -65,12 +65,9 @@ spec:
         persistentVolumeClaim:
           claimName: zk-evm-worker-circuits-pvc
       nodeSelector:
-        cloud.google.com/gke-nodepool: highmem-node-pool
+      {{ toYaml .Values.worker.nodeSelector | indent 8 }}
       tolerations:
-      - key: "highmem"
-        operator: "Equal"
-        value: "true"
-        effect: "NoSchedule"
+      {{ toYaml .Values.worker.tolerations | indent 8 }}
 
 ---
 apiVersion: v1

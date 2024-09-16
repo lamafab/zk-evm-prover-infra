@@ -4,13 +4,18 @@
 network: my-network
 
 worker:
+  nodeSelector:
+    kubernetes.io/hostname: minikube
+  tolerations: []
+    #- key: "highmem"
+      #operator: "Equal"
+      #value: "true"
+      #effect: "NoSchedule"
+
   image: leovct/zk_evm:v0.6.0
 
   # Number of worker pods when autoscaler is disabled.
   workerCount: 4
-
-  nodeSelector:
-    cloud.google.com/gke-nodepool: highmem-node-pool
 
   autoscaler:
     # Enable or disable the worker autoscaler (HPA).
@@ -60,12 +65,12 @@ worker:
   resources:
     # Resource requests for Kubernetes scheduler.
     requests:
-      memory: 30G
-      cpu: 5
+      memory: 2G
+      cpu: 2
     # Resource limits enforced by Kubernetes kubelet.
     limits:
-      memory: 230G
-      cpu: 50
+      memory: 2G
+      cpu: 2
 
 rabbitmq:
   cluster:
