@@ -76,18 +76,6 @@ data:
     done
 
 ---
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: custom-rwx
-provisioner: filestore.csi.storage.gke.io
-volumeBindingMode: WaitForFirstConsumer
-allowVolumeExpansion: true
-parameters:
-  tier: standard
-  network: {{ .Values.network }}
-
----
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -95,7 +83,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: custom-rwx
+  storageClassName: standard  # Change this to the Minikube default
   resources:
     requests:
-      storage: 100Gi
+      storage: 10Gi
