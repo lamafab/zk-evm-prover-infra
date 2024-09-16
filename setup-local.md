@@ -52,6 +52,7 @@ sudo dpkg -i minikube_latest_amd64.deb && rm minikube_latest_amd64.deb
 ```bash
 # minikube delete
 minikube start
+# minikube start --memory 20480 --cpus 12
 ```
 
 ## Deployment
